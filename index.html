@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>植趣智能花盆｜植物管家体验器</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="app" class="app">
+    <div id="sceneBg" class="scene-bg"></div>
+    <div class="scene-vignette"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <img src="assets/logo-plantin.png" alt="植趣 logo" />
+      </div>
+      <nav class="nav">
+        <button class="nav-link active" data-toast="首页已展示">首页</button>
+        <button class="nav-link" data-toast="商城模块为后续扩展，本次 Demo 重点展示互动体验">商城</button>
+        <button class="nav-link" data-toast="植物百科模块为后续扩展，本次 Demo 重点展示互动体验">百科</button>
+        <button class="nav-link" data-toast="园艺天地模块为后续扩展，本次 Demo 重点展示互动体验">园艺天地</button>
+      </nav>
+      <button id="restartBtn" class="restart-btn">重新选择</button>
+    </header>
+
+    <section class="stage">
+      <div id="potLayer" class="pot-layer">
+        <div id="potLabel" class="pot-label">植趣管家<br><strong>康康</strong></div>
+        <img id="potImage" class="pot-img" src="assets/kangkang-kalanchoe-stage1-sprout.png" alt="智能花盆" />
+        <div id="faceBadge" class="face-badge">^_^</div>
+        <div id="effectLayer" class="effect-layer"></div>
+      </div>
+
+      <section class="chat-panel" aria-label="花盆管家对话区">
+        <div class="chat-title">
+          <span id="chatName">康康</span>
+          <em id="chatMood">细致入微</em>
+        </div>
+        <div id="chatList" class="chat-list"></div>
+        <form id="chatForm" class="chat-form">
+          <input id="chatInput" type="text" placeholder="和花盆管家聊一句，比如：现在状态怎么样？" autocomplete="off" />
+          <button type="submit">发送</button>
+        </form>
+      </section>
+
+      <aside class="status-panel" aria-label="植物状态操作区">
+        <div class="info-card time-card">
+          <div class="time-main" id="timeText">14:32</div>
+          <div class="date-main" id="dateText">今天</div>
+          <div class="weather-main">☀️ <b>22℃</b></div>
+        </div>
+
+        <div class="info-card plant-card">
+          <div class="plant-head">
+            <div>
+              <h1 id="plantTitle">长寿花</h1>
+              <p id="plantSub">康康 · 标准花盆</p>
+            </div>
+            <button id="settingsBtn" class="small-link">设置 ›</button>
+          </div>
+          <div class="badges">
+            <span id="stageBadge">适应期</span>
+            <span id="healthBadge">健康</span>
+            <span id="hintBadge">轻度缺水</span>
+            <span id="nextBadge">下一阶段：幼苗期</span>
+          </div>
+          <div id="statList" class="stat-list"></div>
+        </div>
+
+        <div class="action-grid" id="actionGrid">
+          <button class="action-btn" data-action="water">💧<span>加水</span></button>
+          <button class="action-btn" data-action="fertilize">🌱<span>施肥</span></button>
+          <button class="action-btn" data-action="diagnose">🔍<span>诊断</span></button>
+          <button class="action-btn" data-action="light">☀️<span>补光</span></button>
+          <button class="action-btn" data-action="charge">⚡<span>充电</span></button>
+          <button class="action-btn" data-action="bug">🐞<span>除虫</span></button>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="introOverlay" class="overlay show">
+    <div class="intro-card">
+      <img class="intro-logo" src="assets/logo-plantin.png" alt="植趣" />
+      <h2>您梦想中的种植场景是什么样呢？</h2>
+      <p>通过选项生成您的专属植趣花盆和栽培场景吧！</p>
+      <button id="startQuizBtn" class="primary-btn">开始体验</button>
+    </div>
+  </div>
+
+  <div id="quizOverlay" class="overlay">
+    <div class="quiz-card">
+      <div class="quiz-top">
+        <img src="assets/logo-plantin.png" alt="植趣" />
+        <span id="quizProgress">Question 1 / 4</span>
+      </div>
+      <h2 id="quizTitle">您想种植什么植物？</h2>
+      <div id="quizContent" class="quiz-content"></div>
+      <div class="quiz-actions">
+        <button id="prevQuizBtn" class="ghost-btn">上一题</button>
+        <button id="nextQuizBtn" class="primary-btn">下一题</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="resultModal" class="overlay">
+    <div class="result-card">
+      <h2>恭喜完成第一次智能养护体验！</h2>
+      <p id="resultText">植趣花盆已为你生成专属养护方案。</p>
+      <div id="planList" class="plan-list"></div>
+      <div class="result-actions">
+        <button id="playAgainBtn" class="ghost-btn">再养一盆</button>
+        <button id="closeResultBtn" class="primary-btn">继续体验</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
