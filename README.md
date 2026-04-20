@@ -1,6 +1,7 @@
 # 植趣智能花盆｜植物管家体验器 Demo
 
 这是一个可直接发布的静态网页小游戏 Demo。
+# 网页链接：https://grand-lebkuchen-d98337.netlify.app/
 
 ## 文件结构
 
